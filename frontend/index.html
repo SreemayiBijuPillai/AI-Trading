@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Trading Terminal</title>
+    <!-- Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="container">
+        <header>
+            <h1 class="logo">AI<span>TRADER</span></h1>
+            <p class="subtitle">Predictive Market Intelligence</p>
+        </header>
+
+        <section class="search-section glass-panel">
+            <form id="predict-form">
+                <input type="text" id="ticker-input" placeholder="Enter Stock Ticker (e.g. RELIANCE.NS)" required autocomplete="off">
+                <button type="submit" id="analyze-btn">
+                    <span class="btn-text">Analyze</span>
+                    <span class="loader" style="display: none;"></span>
+                </button>
+            </form>
+            <div id="error-message" class="error-msg" style="display: none;"></div>
+        </section>
+
+        <section class="dashboard" id="dashboard" style="display: none;">
+            <div class="metrics-grid">
+                <div class="metric glass-panel">
+                    <h3>Current Price</h3>
+                    <div class="value" id="current-price">--</div>
+                </div>
+                <div class="metric glass-panel highlight-metric">
+                    <h3>Predicted Close</h3>
+                    <div class="value highlight-text" id="predicted-price">--</div>
+                </div>
+            </div>
+
+            <div class="details-section">
+                <div class="indicators glass-panel">
+                    <h3>Technical Indicators</h3>
+                    <ul class="indicator-list">
+                        <li>
+                            <span class="label">SMA (50 Days)</span>
+                            <span class="val" id="sma-val">--</span>
+                        </li>
+                        <li>
+                            <span class="label">EMA (20 Days)</span>
+                            <span class="val" id="ema-val">--</span>
+                        </li>
+                        <li>
+                            <span class="label">RSI (14 Days)</span>
+                            <span class="val" id="rsi-val">--</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="chart-container glass-panel">
+                    <canvas id="predictionChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
